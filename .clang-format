@@ -1,0 +1,6 @@
+BasedOnStyle: WebKit
+IndentWidth: 4
+TabWidth: 4
+BreakBeforeBraces: Attach
+Cpp11BracedListStyle: true
+NamespaceIndentation: All
