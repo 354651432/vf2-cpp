@@ -1,5 +1,6 @@
 #include "graph.h"
 #include <algorithm>
+#include <string>
 
 vector<Graph> match(Graph* g1, Graph* g2) {
     return vector<Graph>();
@@ -10,27 +11,9 @@ Graph::Graph() {
     this->G = vector<vector<int>>();
 }
 
-void Graph::display() {
-    this->display("");
-}
-void Graph::display(string msg) {
-    cout << msg << endl
-         << "points:" << endl;
-    for (auto c : this->V) {
-        printf(" %c,", c);
-    }
-    printf("\n");
-
-    printf("matrix:\n");
-    for (auto line : this->G) {
-        for (auto p : line) {
-            printf(" %d,", p);
-        }
-        printf("\n");
-    }
-    printf("\n");
-    printf("\n");
-}
+Graph::Graph(VType V, GType G)
+    : V(V)
+    , G(G) { }
 
 int Graph::getVPoint(char x) {
     for (int i = 0; i < this->V.size(); i++) {
@@ -39,7 +22,7 @@ int Graph::getVPoint(char x) {
         }
     }
 
-    return -1;
+    throw "point is not in the graph";
 }
 
 int Graph::getPoint(char x, char y) {
@@ -69,32 +52,21 @@ Graph Graph::subGraph(VType points) {
     return g;
 }
 
-// 找到顶点
-VType Graph::getEndPoints(VType points) {
-    if (this->getPoint(points[0], points[1]) == 1 && this->getPoint(points[0], points[2]) == 1) {
-        return vector<char> {points[1], points[2]};
-    }
+void Graph::validate() {
+    int n = this->V.size();
 
-    if (this->getPoint(points[0], points[1]) == 1 && this->getPoint(points[1], points[2]) == 1) {
-        return vector<char> {points[0], points[2]};
-    }
-
-    return vector<char> {points[0], points[1]};
-}
-
-VType Graph::C4(VType points) {
-    VType result;
-    VType endpoints = this->getEndPoints(points);
-    for (char i : this->V) {
-        if (find(points.begin(), points.end(), i) != points.end()) {
-            continue;
-        }
-
-        if (this->getPoint(i, endpoints[0]) == 1 && this->getPoint(i, endpoints[1]) == 1) {
-            result.push_back(i);
+    // 对角线应该全部为0
+    for (int i = 0; i < n; i++) {
+        if (this->G[i][i] != 0) {
+            throw string() + "[" + to_string(i) + "," + to_string(i) + "] should be 0";
         }
     }
-    return result;
-}
 
-// VType Graph::K14(VType points);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (this->G[i][j] != this->G[j][i]) {
+                throw string() + "[" + to_string(i) + "," + to_string(j) + "] not eq to [" + to_string(j) + "," + to_string(i) + "]";
+            }
+        }
+    }
+}

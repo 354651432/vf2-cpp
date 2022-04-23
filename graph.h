@@ -11,19 +11,17 @@ class Graph {
 private:
 public:
     Graph();
-    void display(string);
-    void display();
+    Graph(VType v, GType g);
     Graph subGraph(VType);
     int getVPoint(char x);
     int getPoint(char x, char y);
 
     bool inPoint(char x);
 
-    // get p3 ext point
-    VType C4(VType);
-
     VType V;
     GType G;
 
     VType getEndPoints(VType);
+
+    void validate();
 };

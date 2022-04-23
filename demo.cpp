@@ -1,62 +1,101 @@
 #include "demo.h"
+#include "constant.h"
 #include "match.h"
 
+#include "c4.h"
+#include "k14.h"
+
 namespace Demo1 {
-    Graph getBigGraph() {
-        Graph g;
-        g.V = {'1', '2', '3', '4', '5', '6', '7'};
-        g.G = {
-            {0, 1, 0, 0, 0, 0, 0},
-            {1, 0, 1, 1, 1, 0, 0},
-            {0, 1, 0, 0, 0, 1, 0},
-            {0, 1, 0, 0, 0, 1, 1},
-            {0, 1, 0, 0, 0, 0, 0},
-            {0, 0, 1, 1, 0, 0, 0},
-            {0, 0, 0, 1, 0, 0, 0}};
+    void showGraph(Graph g) {
+        showVType(g.V);
 
-        return g;
-    }
+        std::cout << std::endl;
+        std::cout << "graph:" << endl;
 
-    Graph getP3ForMatch() {
-        Graph g;
-        g.V = {'1', '2', '3'};
-        g.G = {
-            {0, 1, 0},
-            {1, 0, 1},
-            {0, 1, 0},
-        };
-
-        return g;
-    }
-
-    vector<VType> matchTest() {
-        return match(getBigGraph(), getP3ForMatch());
-    }
-
-    VType getP3() {
-        return VType {'1', '2', '3'};
-    }
-
-    VType test245() {
-        Graph g = getBigGraph();
-        return g.C4({'2', '4', '5'});
-    }
-
-    VType test236() {
-        Graph g = getBigGraph();
-        return g.C4({'2', '3', '6'});
-    }
-
-    void resultDisplay(string msg, VType result) {
-        cout << msg << endl;
-        if (result.size() <= 0) {
-            cout << "no result" << endl;
-            return;
+        for (auto arr : g.G) {
+            for (auto pt : arr) {
+                std::cout << pt << " ";
+            }
+            std::cout << std::endl;
         }
+    }
+    void showVType(VType arr) {
+        std::cout << "points: ";
+        for (auto pt : arr) {
+            std::cout << pt << " ";
+        }
+        cout << endl;
+    }
 
-        cout << "results:" << endl;
-        for (auto i : result) {
-            cout << i << " ";
+    void testC4() {
+        auto g = Constant::demoG1;
+        auto matchResults = match(g, Constant::p3);
+
+        for (VType pts : matchResults) {
+            auto results = C4(g, pts);
+            if (results.size() <= 0) {
+                continue;
+            }
+
+            std::cout << "\np3->" << std::endl;
+            showVType(pts);
+
+            std::cout << "c4 results:";
+            for (auto res : results) {
+                cout << res << " ";
+            }
+
+            cout << endl;
+        }
+    }
+
+    void testK14() {
+        auto g = Constant::demoG1;
+        auto matchResults = match(g, Constant::p3);
+        for (VType pts : matchResults) {
+            auto results = k14(g, pts);
+            if (results.size() <= 0) {
+                continue;
+            }
+
+            std::cout << "p3->" << std::endl;
+            showVType(pts);
+
+            std::cout << "k14 results:" << endl;
+            for (auto res : results) {
+                showVType(res);
+            }
+
+            cout << endl
+                 << endl;
+        }
+    }
+
+    void testK13() {
+        auto g = Constant::demoG1;
+        auto matchResults = match(g, Constant::p3);
+        for (VType pts : matchResults) {
+
+            auto results = k13(g, pts);
+            if (results.size() <= 0) {
+                continue;
+            }
+
+            std::cout << "p3->" << std::endl;
+            showVType(pts);
+            showVType(results);
+
+            cout << endl
+                 << endl;
+        }
+    }
+
+    void testMatch() {
+        auto g = Constant::demoG1;
+        auto matchResults = match(g, Constant::p3);
+        for (VType pts : matchResults) {
+            std::cout << "p3->" << std::endl;
+            showVType(pts);
         }
     }
 }

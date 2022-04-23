@@ -2,13 +2,11 @@
 using namespace std;
 
 namespace Demo1 {
-    Graph getBigGraph();
-    VType getP3();
-    VType test245();
-    VType test236();
+    void showGraph(Graph);
+    void showVType(VType);
 
-    vector<VType> matchTest();
-
-    void resultDisplay(string, VType);
-
+    void testC4();
+    void testK14();
+    void testK13();
+    void testMatch();
 }

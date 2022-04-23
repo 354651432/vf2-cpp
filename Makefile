@@ -1,8 +1,8 @@
 CC=g++
-main: main.o graph.o match.o demo.o 
+CXXFLAGS+=-g
+main: main.o graph.o match.o demo.o c4.o k14.o
 
-%.o:%.cpp
-	g++ -g -c $? -o $@
+main.o: constant.h
 
 .PHONY: clean run
 clean:

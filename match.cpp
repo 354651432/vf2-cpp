@@ -20,7 +20,7 @@ bool graphEq(Graph g1, Graph g2) {
 vector<VType> match(Graph g1, Graph g2) {
     int n = g2.V.size();
 
-    Combination cb(g1.V);
+    Combination<char> cb(g1.V);
     auto points = cb.run(n);
 
     vector<VType> result;
