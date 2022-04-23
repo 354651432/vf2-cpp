@@ -7,10 +7,10 @@
 
 namespace Demo1 {
     void showGraph(Graph g) {
-        showVType(g.V);
+        showVType(g.V, g.title);
 
         std::cout << std::endl;
-        std::cout << "graph:" << endl;
+        std::cout << g.title << " matrix:" << endl;
 
         for (auto arr : g.G) {
             for (auto pt : arr) {
@@ -19,8 +19,13 @@ namespace Demo1 {
             std::cout << std::endl;
         }
     }
+
     void showVType(VType arr) {
-        std::cout << "points: ";
+        showVType(arr, "");
+    }
+    
+    void showVType(VType arr, string title) {
+        std::cout << title << " points: ";
         for (auto pt : arr) {
             std::cout << pt << " ";
         }

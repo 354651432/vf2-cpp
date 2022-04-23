@@ -67,6 +67,7 @@ public:
         : vec(vec1) { }
 
     vector<vector<T>> run(int m) {
+        results.clear();
         for (auto it : vec) {
             results.push_back(vector<T> {it});
         }

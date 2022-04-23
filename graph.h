@@ -18,10 +18,13 @@ public:
 
     bool inPoint(char x);
 
+    string title;
     VType V;
     GType G;
 
     VType getEndPoints(VType);
 
     void validate();
+
+    static Graph fromJson(string filename);
 };
