@@ -1,4 +1,5 @@
 #include "demo.h"
+#include "match.h"
 
 namespace Demo1 {
     Graph getBigGraph() {
@@ -16,18 +17,34 @@ namespace Demo1 {
         return g;
     }
 
+    Graph getP3ForMatch() {
+        Graph g;
+        g.V = {'1', '2', '3'};
+        g.G = {
+            {0, 1, 0},
+            {1, 0, 1},
+            {0, 1, 0},
+        };
+
+        return g;
+    }
+
+    vector<VType> matchTest() {
+        return match(getBigGraph(), getP3ForMatch());
+    }
+
     VType getP3() {
         return VType {'1', '2', '3'};
     }
 
     VType test245() {
         Graph g = getBigGraph();
-        return g.getP3Match({'2', '4', '5'});
+        return g.C4({'2', '4', '5'});
     }
 
     VType test236() {
         Graph g = getBigGraph();
-        return g.getP3Match({'2', '3', '6'});
+        return g.C4({'2', '3', '6'});
     }
 
     void resultDisplay(string msg, VType result) {
@@ -39,7 +56,7 @@ namespace Demo1 {
 
         cout << "results:" << endl;
         for (auto i : result) {
-            cout << i << endl;
+            cout << i << " ";
         }
     }
 }

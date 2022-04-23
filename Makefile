@@ -1,5 +1,5 @@
 CC=g++
-main: main.o graph.o demo.o
+main: main.o graph.o match.o demo.o 
 
 %.o:%.cpp
 	g++ -g -c $? -o $@

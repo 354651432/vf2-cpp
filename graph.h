@@ -20,7 +20,7 @@ public:
     bool inPoint(char x);
 
     // get p3 ext point
-    VType getP3Match(VType);
+    VType C4(VType);
 
     VType V;
     GType G;

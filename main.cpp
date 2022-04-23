@@ -1,5 +1,7 @@
+#include "combination.h"
 #include "demo.h"
 #include "graph.h"
+#include <vector>
 
 using namespace std;
 
@@ -14,6 +16,10 @@ int main() {
     // Graph gP3 = g.subGraph(p3);
     // gP3.display("matched p3");
 
-    Demo1::resultDisplay("test 2 3 6", Demo1::test236());
-    Demo1::resultDisplay("test 2 4 5", Demo1::test245());
+    // Demo1::resultDisplay("test 2 3 6", Demo1::test236());
+    // Demo1::resultDisplay("test 2 4 5", Demo1::test245());
+
+    for (auto result : Demo1::matchTest()) {
+        Demo1::resultDisplay("", result);
+    }
 }

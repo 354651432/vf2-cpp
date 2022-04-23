@@ -7,5 +7,8 @@ namespace Demo1 {
     VType test245();
     VType test236();
 
-    void resultDisplay(string,VType);
+    vector<VType> matchTest();
+
+    void resultDisplay(string, VType);
+
 }

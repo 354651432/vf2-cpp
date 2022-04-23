@@ -82,7 +82,7 @@ VType Graph::getEndPoints(VType points) {
     return vector<char> {points[0], points[1]};
 }
 
-VType Graph::getP3Match(VType points) {
+VType Graph::C4(VType points) {
     VType result;
     VType endpoints = this->getEndPoints(points);
     for (char i : this->V) {
@@ -94,6 +94,7 @@ VType Graph::getP3Match(VType points) {
             result.push_back(i);
         }
     }
-
     return result;
 }
+
+// VType Graph::K14(VType points);
