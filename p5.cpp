@@ -99,7 +99,7 @@ vector<VType> N113(Graph g, VType arr) {
         auto DEF = arr;
 
         // 剩下的DEF三个点
-        DEF.erase(DEF.begin(), DEF.begin() + 2);
+        DEF.erase(DEF.begin(), DEF.begin() + 3);
         if (g.getPoint(A, G)
             && g.getPoint(C, G)
             && !g.getPoint(G, arr[0])

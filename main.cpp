@@ -7,5 +7,5 @@ int main() {
     // Demo1::testK14();
     // Demo1::testMatch();
 
-    Demo1::testZ4();
+    Demo1::testN113();
 }

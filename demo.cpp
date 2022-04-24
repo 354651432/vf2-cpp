@@ -153,16 +153,14 @@ namespace Demo1 {
         auto g = Graph::fromJson("graph-data/graph1.json");
         Graph p5 = Graph::fromJson("graph-data/p5-n113.json");
 
-        auto matchResults = match(g, p5);
-        for (auto res : matchResults) {
-            auto results = N113(g, res);
-            if (results.size() <= 0) {
-                cout << "no results" << endl;
-                return;
-            }
-            for (auto res : results) {
-                showVType(res);
-            }
+        VType res = {'0', '9', '7', '6', '5', '4'};
+        auto results = N113(g, res);
+        if (results.size() <= 0) {
+            cout << "no results" << endl;
+            return;
+        }
+        for (auto res : results) {
+            showVType(res);
         }
     }
 }
