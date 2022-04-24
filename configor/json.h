@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 #pragma once
-#include "configor.hpp"
+#include "configor.h"
 
 #include <iomanip>  // std::setprecision, std::right, std::noshowbase
 

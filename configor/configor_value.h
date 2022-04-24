@@ -19,8 +19,8 @@
 // THE SOFTWARE.
 
 #pragma once
-#include "configor_exception.hpp"
-#include "configor_stream.hpp"
+#include "configor_exception.h"
+#include "configor_stream.h"
 
 #include <cmath>    // std::fabs
 #include <limits>   // std::numeric_limits

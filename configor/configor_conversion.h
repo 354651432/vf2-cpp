@@ -19,8 +19,8 @@
 // THE SOFTWARE.
 
 #pragma once
-#include "configor_declare.hpp"
-#include "configor_value.hpp"
+#include "configor_declare.h"
+#include "configor_value.h"
 
 #include <array>          // std::array
 #include <deque>          // std::deque

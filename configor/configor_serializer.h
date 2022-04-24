@@ -19,10 +19,10 @@
 // THE SOFTWARE.
 
 #pragma once
-#include "configor_encoding.hpp"
-#include "configor_stream.hpp"
-#include "configor_token.hpp"
-#include "configor_value.hpp"
+#include "configor_encoding.h"
+#include "configor_stream.h"
+#include "configor_token.h"
+#include "configor_value.h"
 
 #include <ios>          // std::streamsize
 #include <ostream>      // std::basic_ostream

@@ -19,12 +19,12 @@
 // THE SOFTWARE.
 
 #pragma once
-#include "configor_conversion.hpp"
-#include "configor_declare.hpp"
-#include "configor_iterator.hpp"
-#include "configor_parser.hpp"
-#include "configor_serializer.hpp"
-#include "configor_value.hpp"
+#include "configor_conversion.h"
+#include "configor_declare.h"
+#include "configor_iterator.h"
+#include "configor_parser.h"
+#include "configor_serializer.h"
+#include "configor_value.h"
 
 #include <sstream>      // std::stringstream
 #include <algorithm>    // std::for_each, std::all_of

@@ -19,7 +19,7 @@
 // THE SOFTWARE.
 
 #pragma once
-#include "configor_basic.hpp"
+#include "configor_basic.h"
 
 namespace configor
 {

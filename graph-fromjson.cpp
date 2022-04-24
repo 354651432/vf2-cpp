@@ -1,4 +1,4 @@
-#include "configor/json.hpp"
+#include "configor/json.h"
 #include "graph.h"
 #include <fstream>
 
