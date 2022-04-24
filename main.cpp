@@ -59,20 +59,27 @@ int main(int argc, char** argv) {
                 std::cout << "/* message1 */" << std::endl;
                 return 0;
             }
+
+            // 匹配k13失败 匹配p7 z4 n113失败
+            std::cout << "/* message1 */" << std::endl;
+            return 0;
         }
 
+        // 匹配k13成功
         if (p5MatchResults.size() > 0) { // if have p5
+            //匹配k13成功 p5成功
             std::cout << "/* message2 */" << std::endl;
             return 0;
         }
 
         auto c4Results = batchGetResult(g, p3MatchResults, C4);
         auto k14Results = batchGetResult(g, p3MatchResults, k14);
-        if (c4Results.size() > 0 && k14Results.size() > 0) { // if the graph have C4 and K1,4
+        if (c4Results.size() > 0 && k14Results.size() > 0) { // 匹配k13成功 p5失败 匹配c4 k14成功
             std::cout << "/* message3 */" << std::endl;
             return 0;
         }
 
+        // 匹配k13成功 p5失败 匹配c4 k14失败
         std::cout << "/* message4 */" << std::endl;
 
     } catch (const std::exception& e) {
