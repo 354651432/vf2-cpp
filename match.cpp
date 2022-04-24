@@ -21,7 +21,7 @@ vector<VType> match(Graph g1, Graph g2) {
     int n = g2.V.size();
 
     Combination<char> cb(g1.V);
-    auto points = cb.run(n);
+    auto points = cb.arrangement(n);
 
     vector<VType> result;
     for (VType arr : points) {
