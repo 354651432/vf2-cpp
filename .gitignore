@@ -5,3 +5,4 @@ main
 .vscode/
 demos
 *.o
+*.out

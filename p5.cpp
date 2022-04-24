@@ -67,12 +67,15 @@ vector<VType> Z4(Graph g, VType arr) {
         BCDE.erase(BCDE.begin());
 
         if (g.getPoint(A, F)
-            && !isConnect(g, F, BCDE)) {
+            && !isConnect(g, F, BCDE)
+            && !inPoints(F, arr)) {
 
             for (auto G : g.V) {
                 if (g.getPoint(A, F)
                     && !isConnect(g, F, BCDE)
-                    && g.getPoint(F, G)) {
+                    && g.getPoint(F, G)
+                    && g.getPoint(A, G)
+                    && !inPoints(G, arr)) {
                     results.push_back({F, G});
                 }
             }
