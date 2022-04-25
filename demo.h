@@ -11,6 +11,7 @@ namespace Demo1 {
     void testMatch();
     void testAcMatch();
     void testV2fMatch();
+    void testV2Transf();
 
     void testP7();
     void testZ4();

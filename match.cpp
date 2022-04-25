@@ -1,5 +1,4 @@
 #include "match.h"
-#include "vf2-vector/graph.h"
 #include "vf2-vector/vf2.h"
 
 bool graphEq(Graph g1, Graph g2) {
@@ -37,10 +36,11 @@ vector<VType> match(Graph g1, Graph g2) {
 
 vector<vector<int>> getEdges(Graph g) {
     vector<vector<int>> edges;
+    int next = 100;
     for (int i = 0; i < g.G.size(); i++) {
         for (int j = 0; j < g.G[i].size(); j++) {
             if (g.G[i][j]) {
-                edges.push_back({i, j, 0});
+                edges.push_back({i, j, ++next});
             }
         }
     }

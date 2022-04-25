@@ -8,6 +8,8 @@
 #include "k14.h"
 #include "p5.h"
 
+#include "vf2-vector/graph.h"
+
 using namespace std;
 
 namespace Demo1 {
@@ -131,6 +133,26 @@ namespace Demo1 {
             std::cout << "p3->" << std::endl;
             showVType(pts);
         }
+    }
+
+    void testV2Transf() {
+        // auto g1 = Graph::fromJson("graph-data/graph1.json");
+        auto g2 = Graph::fromJson("graph-data/p5.json");
+        GraphVec gg1 = ::GraphVecFromGraph(g2);
+        showGraph(g2);
+
+        std::cout << "\n\nedges ->" << std::endl;
+        for (auto i : gg1.edge) {
+            std::cout << i.v << " ";
+            std::cout << i.w << " ";
+            std::cout << i.next << std::endl;
+        }
+
+        std::cout << "\npoints ->" << std::endl;
+        for (auto i : gg1.node) {
+            std::cout << (char)i << " ";
+        }
+        std::cout << std::endl;
     }
 
     void testP7() {

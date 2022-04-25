@@ -91,6 +91,6 @@ int run(int argc, char** argv) {
 
 int main(int argc, char const *argv[])
 {
-    Demo1::testV2fMatch();
+    Demo1::testV2Transf();
     return 0;
 }
