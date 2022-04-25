@@ -5,7 +5,7 @@ LDFLAGS=-pg
 VF2SRCS := $(wildcard vf2-vector/*.cpp)
 VF2OBJS := $(patsubst %.cpp,%.o,${VF2SRCS})
 
-main: main.o graph.o match.o demo.o c4.o k14.o graph-fromjson.o p5.o
+main: main.o graph.o match.o demo.o c4.o k14.o graph-fromjson.o p5.o ${VF2OBJS}
 
 main.o: constant.h
 
@@ -18,9 +18,3 @@ clean:
 
 run: main
 	@./main
-
-
-
-# vf2: ${VF2OBJS}
-# 	echo ${VF2SRCS}
-# 	echo ${VF2OBJS}

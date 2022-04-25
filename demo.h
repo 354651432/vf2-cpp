@@ -1,5 +1,4 @@
 #include "graph.h"
-using namespace std;
 
 namespace Demo1 {
     void showGraph(Graph);
@@ -11,6 +10,7 @@ namespace Demo1 {
     void testK13();
     void testMatch();
     void testAcMatch();
+    void testV2fMatch();
 
     void testP7();
     void testZ4();

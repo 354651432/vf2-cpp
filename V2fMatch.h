@@ -3,7 +3,7 @@
 #include "graph.h"
 #include "match.h"
 
-class AcMatch : public Combination<char> {
+class V2fMatch : public Combination<char> {
     Graph g1, g2;
 
 protected:
@@ -13,15 +13,12 @@ protected:
         }
 
         Graph subGrap = g1.subGraph(arr);
-        if (graphEq(subGrap, g2)) {
-            return true;
-        }
-
-        return false;
+        
+        return vf2(subGrap, g2);
     }
 
 public:
-    AcMatch(Graph g1, Graph g2)
+    V2fMatch(Graph g1, Graph g2)
         : g1(g1)
         , g2(g2)
         , Combination(g1.V) {

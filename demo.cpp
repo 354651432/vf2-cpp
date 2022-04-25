@@ -3,9 +3,12 @@
 #include "constant.h"
 #include "match.h"
 
+#include "V2fMatch.h"
 #include "c4.h"
 #include "k14.h"
 #include "p5.h"
+
+using namespace std;
 
 namespace Demo1 {
     void showGraph(Graph g) {
@@ -110,10 +113,21 @@ namespace Demo1 {
 
     void testAcMatch() {
 
-        AcMatch acMatch(Graph::fromJson("graph-data/graph1.json"),
+        AcMatch matcher(Graph::fromJson("graph-data/graph1.json"),
             Graph::fromJson("graph-data/p5.json"));
 
-        for (VType pts : acMatch.match()) {
+        for (VType pts : matcher.match()) {
+            std::cout << "p3->" << std::endl;
+            showVType(pts);
+        }
+    }
+
+    void testV2fMatch() {
+
+        V2fMatch matcher(Graph::fromJson("graph-data/graph1.json"),
+            Graph::fromJson("graph-data/p5.json"));
+
+        for (VType pts : matcher.match()) {
             std::cout << "p3->" << std::endl;
             showVType(pts);
         }

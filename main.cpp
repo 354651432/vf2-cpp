@@ -23,7 +23,7 @@ vector<vector<T>> batchGetResult(Graph g, vector<VType> results, vector<T> (*cal
     return ret;
 }
 
-int main(int argc, char** argv) {
+int run(int argc, char** argv) {
     if (argc <= 1) {
         std::cout << "input error" << std::endl;
         return -1;
@@ -86,5 +86,11 @@ int main(int argc, char** argv) {
         std::cerr << e.what() << '\n';
     }
 
+    return 0;
+}
+
+int main(int argc, char const *argv[])
+{
+    Demo1::testV2fMatch();
     return 0;
 }
