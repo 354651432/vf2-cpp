@@ -1,3 +1,4 @@
+#include "AcMatch.h"
 #include "c4.h"
 #include "combination.h"
 #include "demo.h"
@@ -32,7 +33,6 @@ int main(int argc, char** argv) {
         Graph g = Graph::fromJson(argv[1]); // 检测的大图
         Graph p3 = Graph::fromJson("graph-data/p3.json"); // p3
         Graph p5 = Graph::fromJson("graph-data/p5.json"); // p5
-        Graph p5ex = Graph::fromJson("graph-data/p5-n113.json"); // 6个点的p5
 
         g.validate();
 
@@ -42,8 +42,8 @@ int main(int argc, char** argv) {
             return -2;
         }
 
-        auto p3MatchResults = match(g, p3); // match p3 的结果集
-        auto p5MatchResults = match(g, p5);
+        auto p3MatchResults = AcMatch(g, p3).match(); // match p3 的结果集
+        auto p5MatchResults = AcMatch(g, p5).match();
 
         if (p3MatchResults.size() <= 0) {
             std::cout << str1 << std::endl;

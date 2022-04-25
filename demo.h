@@ -10,6 +10,7 @@ namespace Demo1 {
     void testK14();
     void testK13();
     void testMatch();
+    void testAcMatch();
 
     void testP7();
     void testZ4();

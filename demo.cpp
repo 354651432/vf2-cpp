@@ -1,4 +1,5 @@
 #include "demo.h"
+#include "AcMatch.h"
 #include "constant.h"
 #include "match.h"
 
@@ -102,6 +103,17 @@ namespace Demo1 {
             Graph::fromJson("graph-data/p5.json"));
 
         for (VType pts : matchResults) {
+            std::cout << "p3->" << std::endl;
+            showVType(pts);
+        }
+    }
+
+    void testAcMatch() {
+
+        AcMatch acMatch(Graph::fromJson("graph-data/graph1.json"),
+            Graph::fromJson("graph-data/p5.json"));
+
+        for (VType pts : acMatch.match()) {
             std::cout << "p3->" << std::endl;
             showVType(pts);
         }

@@ -21,6 +21,10 @@ class Combination {
             for (auto& it : last) {
                 vector<T> headCopy = head;
                 headCopy.push_back(it);
+                if (!useResult(headCopy)) {
+                    continue;
+                }
+
                 if (!inResults(headCopy))
                     results.push_back(headCopy);
             }
@@ -41,6 +45,7 @@ class Combination {
         if (!unique) {
             return false; // 排除直接返回 false 以下逻辑是组合用的
         }
+
         for (auto& arr : results) {
             if (arr.size() != vec.size()) {
                 continue;
@@ -64,6 +69,11 @@ class Combination {
             }
         }
 
+        return true;
+    }
+
+protected:
+    virtual bool useResult(vector<T>) {
         return true;
     }
 
