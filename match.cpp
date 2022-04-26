@@ -19,6 +19,7 @@ bool graphEq(Graph g1, Graph g2) {
 }
 
 vector<VType> match(Graph g1, Graph g2) {
+    return vf2(g1, g2);
     int n = g2.V.size();
 
     Combination<char> cb(g1.V);
