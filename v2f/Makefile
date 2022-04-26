@@ -7,7 +7,7 @@ all: clean main
 main: main.o graph.o graph-fromjson.o
 
 clean: 
-	@-rm -f *.o
+	@-rm -f main.o main
 
 run: all
 	./main
