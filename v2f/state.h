@@ -11,10 +11,10 @@ typedef pair<char, char> Mapping;
 // genPs t1 t2两个集合
 
 class State {
-public:
+
     Graph g1, g2;
 
-    vector<char> genFirstM(vector<Mapping> M) {
+    vector<char> genFirstM(const vector<Mapping>& M) {
         vector<char> ret;
         for (auto p : M) {
             ret.push_back(p.first);
@@ -22,7 +22,7 @@ public:
         return ret;
     }
 
-    vector<char> genSecondM(vector<Mapping> M) {
+    vector<char> genSecondM(const vector<Mapping>& M) {
         vector<char> ret;
         for (auto p : M) {
             ret.push_back(p.second);
@@ -30,7 +30,7 @@ public:
         return ret;
     }
 
-    vector<char> genTerminal(Graph g, vector<char> M) {
+    vector<char> genTerminal(Graph& g, const vector<char>& M) {
         vector<char> ret;
         for (char pt : g.V) {
             if (find(M.begin(), M.end(), pt) != M.end()) {
@@ -38,7 +38,7 @@ public:
             }
 
             for (char pt1 : M) {
-                if (g.getPoint(pt, pt1)) {
+                if (g.getPoint(pt, pt1) > 0) {
                     ret.push_back(pt);
                 }
             }
@@ -48,7 +48,7 @@ public:
     }
 
     // M是否包含整个G2
-    bool coversG2(vector<Mapping> M) {
+    bool coversG2(const vector<Mapping>& M) {
         map<char, bool> core;
         for (auto pr : M) {
             core[pr.second] = true;
@@ -63,19 +63,9 @@ public:
         return true;
     }
 
-    State(Graph g1, Graph g2)
-        : g1(g1)
-        , g2(g2) {
-        for (auto p1 : g1.V) {
-            for (auto p2 : g2.V) {
-                Ps.push_back({p1, p2});
-            }
-        }
-    }
-
     vector<Mapping> Ps;
     // 生成Ps集合
-    vector<Mapping> genPs(vector<Mapping> M) {
+    vector<Mapping> genPs(const vector<Mapping>& M) {
         // return this->Ps;
 
         vector<Mapping> Ps;
@@ -108,7 +98,7 @@ public:
     }
 
     // 状态函数
-    bool F(vector<Mapping> M, char n, char m) {
+    bool F(const vector<Mapping>& M, char n, char m) {
         auto M1 = genFirstM(M);
         auto M2 = genSecondM(M);
 
@@ -137,12 +127,13 @@ public:
 
         return g1TLen >= g2TLen && diff11.size() >= diff22.size();
     }
+
     vector<Mapping> add(vector<Mapping> M, char n, char m) {
         M.push_back({n, m});
         return M;
     }
 
-    bool MappingsEq(vector<Mapping> Mp1, vector<Mapping> Mp2) {
+    bool MappingsEq(const vector<Mapping>& Mp1, const vector<Mapping>& Mp2) {
         if (Mp1.size() != Mp2.size()) {
             return false;
         }
@@ -158,7 +149,8 @@ public:
         }
         return true;
     }
-    bool inResult(vector<Mapping> M) {
+
+    bool inResult(const vector<Mapping>& M) {
         for (vector<Mapping> res : results) {
             for (int i = 0; i < M.size(); i++) {
                 if (MappingsEq(res, M)) {
@@ -170,7 +162,7 @@ public:
         return false;
     }
 
-    bool isResult(vector<Mapping> M) {
+    bool isResult(const vector<Mapping>& M) {
         for (Mapping p1 : M) {
             for (Mapping p2 : M) {
                 if (g1.getPoint(p1.first, p2.first) != g2.getPoint(p1.second, p2.second)) {
@@ -183,9 +175,19 @@ public:
         return !inResult(M);
     }
 
-    vector<vector<Mapping>> results;
+public:
+    State(const Graph& g1, const Graph& g2)
+        : g1(g1)
+        , g2(g2) {
+        for (auto p1 : g1.V) {
+            for (auto p2 : g2.V) {
+                Ps.push_back({p1, p2});
+            }
+        }
+    }
 
-    int vf2(vector<Mapping> M) {
+    vector<vector<Mapping>> results;
+    int vf2(const vector<Mapping>& M) {
         if (coversG2(M)) {
             if (isResult(M)) {
                 results.push_back(M);
