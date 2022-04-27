@@ -1,5 +1,6 @@
 {
     "title": "p5",
+    "desc":"a line with 5 points",
     "V": ["A", "B", "C", "D", "E"],
     "G": [
         [0, 1, 0, 0, 0],

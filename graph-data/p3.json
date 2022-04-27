@@ -1,5 +1,6 @@
 {
     "title": "p3",
+    "desc": "a line with 3 points",
     "V": ["j", "k", "l"],
     "G": [
         [0, 1, 0],

@@ -1,10 +1,9 @@
 CC=g++
-CXXFLAGS+=-g -pg
-LDFLAGS=-pg
+CXXFLAGS+=-g
 
-main: main.o graph.o match.o c4.o k14.o graph-fromjson.o p5.o
+main: main.o
 
-%.o: %.h
+main.o: graph.hpp vf2.hpp
 
 .PHONY: clean run
 clean:
