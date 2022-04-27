@@ -1,24 +1,6 @@
-* 算法
-** DONE match法算
-   假设G1有n个结点,G2有m个结点,从n个结点里取m个然后匹配图1,图2.
-** DONE p3 c4算法
-   图G1,子图p3为三个点的直线,一个中间点,两个终点
-   判断是否有一个图上的点D满足,与两个终点相交
-** DONE p3 K13 K14算法
-   图G1的子图p3
-   找两个点,同时与中间点相交,不与两个终点相关且两个点相互不相交
-** DONE p5 算法1 z4
-** DONE p5 算法2 N113
-** DONE p5 算法3 p7
-
-* 文件说明
-** 算法相关
-   - combination :: 排列组合算法文件
-   - graph :: 邻接矩阵数据结构
-   - match :: 匹配算法
-   - c4 :: c4 算法文件
-   - k14 :: k13 k14算法文件
-
-** 其它文件
-   - demo :: 测试用的文件
-   - constant :: 固定的图数据文件
+* 邻接矩阵的VF2算法， 无向图，子图同构算法，的模板实现
+** 算法 [[https://blog.csdn.net/sixfrogs/article/details/105572782]]
+** 运行
+   #+begin_src shell
+	 make run
+   #+end_src
