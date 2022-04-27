@@ -15,7 +15,7 @@ Graph<string> graphFromJsonFile(const string& filename) {
 
     Graph<string> g;
 
-    g.title = json["title"];
+    g.title = (string)json["title"];
     for (string str : json["V"]) {
         g.V.push_back(str);
     }

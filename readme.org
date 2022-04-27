@@ -2,7 +2,17 @@
 - 算法
    [[https://blog.csdn.net/sixfrogs/article/details/105572782]]
    
+- json 解析类
+  [[https://github.com/Nomango/configor]]
+
+- 运行环境
+#+begin_quote
+g++ (GCC) 11.2.1 20220127 (Red Hat 11.2.1-9)
+GNU Make 4.3
+#+end_quote
+  
 - 运行
 #+begin_src shell
 make run
 #+end_src
+
