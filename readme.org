@@ -15,4 +15,3 @@ GNU Make 4.3
 #+begin_src shell
 make run
 #+end_src
-

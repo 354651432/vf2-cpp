@@ -53,7 +53,6 @@ public:
     }
 
 private:
-
     Vf2Graph g1, g2;
 
     vector<MappingSet> results;
@@ -71,6 +70,17 @@ private:
         for (auto p : state) {
             ret.push_back(p.second);
         }
+        return ret;
+    }
+
+    vector<T> diff(const vector<T>& arr1, const vector<T>& arr2) {
+        vector<T> ret;
+        for (T it : arr1) {
+            if (find(arr2.begin(), arr2.end(), it) == arr2.end()) {
+                ret.push_back(it);
+            }
+        }
+
         return ret;
     }
 
@@ -128,9 +138,7 @@ private:
             return ps;
         }
 
-        PointSet diff1, diff2;
-        set_difference(g1.V.begin(), g1.V.end(), M1.begin(), M1.end(), inserter(diff1, diff1.begin()));
-        set_difference(g2.V.begin(), g2.V.end(), M2.begin(), M2.end(), inserter(diff2, diff2.begin()));
+        PointSet diff1 = diff(g1.V, M1), diff2 = diff(g2.V, M2);
 
         T minValue = *min_element(diff2.begin(), diff2.end());
 
@@ -149,17 +157,15 @@ private:
         PointSet M2,
         PointSet T1,
         PointSet T2) {
+
         auto g1TLen = T1.size();
         auto g2TLen = T2.size();
 
-        PointSet diff1, diff2, diff11, diff22;
-        set_difference(g1.V.begin(), g1.V.end(), M1.begin(), M1.end(), inserter(diff1, diff1.begin()));
-        set_difference(g2.V.begin(), g2.V.end(), M2.begin(), M2.end(), inserter(diff2, diff2.begin()));
+        PointSet diff1 = diff(g1.V, M1), diff2 = diff(g2.V, M2);
+        diff1 = diff(diff1, T1);
+        diff2 = diff(diff2, T2);
 
-        set_difference(diff1.begin(), diff1.end(), T1.begin(), T1.end(), inserter(diff11, diff11.begin()));
-        set_difference(diff2.begin(), diff2.end(), T2.begin(), T2.end(), inserter(diff22, diff22.begin()));
-
-        return g1TLen >= g2TLen && diff11.size() >= diff22.size();
+        return g1TLen >= g2TLen && diff1.size() >= diff2.size();
     }
 
     MappingSet add(MappingSet M, T n, T m) {
