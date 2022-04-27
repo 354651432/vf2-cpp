@@ -1,6 +1,8 @@
 * 邻接矩阵的VF2算法， 无向图，子图同构算法，的模板实现
-** 算法 [[https://blog.csdn.net/sixfrogs/article/details/105572782]]
-** 运行
-   #+begin_src shell
-	 make run
-   #+end_src
+- 算法
+   [[https://blog.csdn.net/sixfrogs/article/details/105572782]]
+   
+- 运行
+#+begin_src shell
+make run
+#+end_src
