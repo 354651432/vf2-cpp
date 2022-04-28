@@ -33,8 +33,8 @@ Graph<string> graphFromJsonFile(const string& filename) {
 
 int main(int argc, char const* argv[]) {
 
-    auto g1 = graphFromJsonFile("graph-data/t2.json");
-    auto g2 = graphFromJsonFile("graph-data/t1.json");
+    auto g1 = graphFromJsonFile("graph-data/graph1.json");
+    auto g2 = graphFromJsonFile("graph-data/p6.json");
 
     auto results = Vf2<string>::runV2f(g1, g2);
 

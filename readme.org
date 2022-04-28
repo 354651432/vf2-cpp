@@ -1,5 +1,8 @@
 * 邻接矩阵的VF2算法， 无向图，子图同构算法，的模板实现
 - 算法
+  首先把所有点分成三类：状态state，里面的点M1 M2，跟整个子集合相连接的点T1 T2，和其它点。
+  算法的过程就是把T1，T2加到state里，state不断扩大到包括整个G2的所有结点的过程。
+  VF2本质是全排列的一个子集。
    [[https://blog.csdn.net/sixfrogs/article/details/105572782]]
    
 - json 解析类
