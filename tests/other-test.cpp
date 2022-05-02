@@ -40,3 +40,14 @@ TEST(Other, argFlowTest) {
     A::A obj;
     fuckA(20, obj);
 }
+
+TEST(Other, fdTest) {
+    vector<int> vec {10, 20, 30, 40, 55, 66, 77, 11, 132};
+    for (int i : vec) {
+        vector<int>::iterator it = find(vec.begin(), vec.end(), i);
+        int dist = distance(vec.begin(), it);
+
+        // cout << i << " " << dist << endl;
+        EXPECT_EQ(vec.at(dist), i);
+    }
+}
