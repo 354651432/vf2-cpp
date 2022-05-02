@@ -1,21 +1,22 @@
 #include "configor/json.h"
 #include "graph.hpp"
 #include <fstream>
+#include <memory>
 #include <vector>
 
 using namespace std;
 
-Graph<string> graphFromJsonFile(const string& filename) {
+auto graphFromJsonFile(const string& filename) {
     configor::json json;
     ifstream hf(filename);
     hf >> json;
     hf.close();
 
-    Graph<string> g;
+    auto g = make_unique<Graph<string>>();
 
-    g.title = (string)json["title"];
+    g->title = (string)json["title"];
     for (string str : json["V"]) {
-        g.V.push_back(str);
+        g->V.push_back(str);
     }
 
     for (auto arr : json["G"]) {
@@ -23,8 +24,8 @@ Graph<string> graphFromJsonFile(const string& filename) {
         for (int it : arr) {
             line.push_back(it);
         }
-        g.G.push_back(line);
+        g->G.push_back(line);
     }
 
-    return g;
+    return move(g);
 }

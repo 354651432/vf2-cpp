@@ -8,4 +8,4 @@ link_libraries(pthread gtest gtest_main)
 
 add_compile_options(-g)
 
-add_executable(test match-test.cpp)
+add_executable(test match-test.cpp other-test.cpp)
