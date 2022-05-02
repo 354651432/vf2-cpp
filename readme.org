@@ -20,8 +20,9 @@ make run
 #+end_src
 
 * undo
-** TODO 修改graph点集合为 unordered_set
-** TODO 增加谷歌测试
-** TODO 优化算法
-** TODO 判断函数修改为一个函数
+** 修改graph点集合为 unorderd_set
+   unorderd_set cannot promise order
+** DONE 增加谷歌测试
+** 优化算法
+** 判断函数修改为一个函数
 
